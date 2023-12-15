@@ -10,9 +10,6 @@ jobs:
       fail-fast : false
       matrix:
 
-        os:
-          ['ubuntu']
-
         python-version:
           - "3.7"
           - "3.8"
@@ -22,7 +19,7 @@ jobs:
           - "3.12"
 
     name: test
-    runs-on : ${{ matrix.os }}
+    runs-on : ubuntu:latest
 
     steps:
       - name: Checkout Code
@@ -38,7 +35,3 @@ jobs:
       
       - name : Run Tests
         run : python -m pytest tests/test_moon.py
-
-
-
-
