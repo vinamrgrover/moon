@@ -8,14 +8,18 @@ jobs:
   run-tests:
     strategy:
       fail-fast : false
-      matrix : ['ubuntu']
-      python-version:
-        - "3.7"
-        - "3.8"
-        - "3.9"
-        - "3.10"
-        - "3.11"
-        - "3.12"
+      matrix:
+
+        os:
+          ['ubuntu']
+
+        python-version:
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
 
     name: test
     runs_on : ${{ matrix.os }}
