@@ -1,0 +1,40 @@
+name : pytest_action
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-tests:
+    strategy:
+      fail-fast : false
+      matrix : ['ubuntu']
+      python-version:
+        - "3.7"
+        - "3.8"
+        - "3.9"
+        - "3.10"
+        - "3.11"
+        - "3.12"
+
+    name: test
+    runs_on : ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Code
+        uses : actions/checkout@v3
+      
+      - name : Setup Python
+        uses : actions/setup-python@v4
+        with:
+          name: ${{ matrix.python-version }}
+
+      - name : Install Dependencies
+        run : python -m pip install pytest .
+      
+      - name : Run Tests
+        run : python -m pytest tests/test_moon.py
+
+
+
+
