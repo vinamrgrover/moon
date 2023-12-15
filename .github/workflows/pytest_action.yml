@@ -22,7 +22,7 @@ jobs:
           - "3.12"
 
     name: test
-    runs_on : ${{ matrix.os }}
+    runs-on : ${{ matrix.os }}
 
     steps:
       - name: Checkout Code
