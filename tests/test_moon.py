@@ -1,5 +1,4 @@
 import unittest
-import pytest
 from moon import MoonBase, MoonQuery
 
 
@@ -9,7 +8,32 @@ class test_moon_base(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.mb = MoonBase()
-        cls.ml = MoonQuery()
 
     def test_connection(self):
         response = self.mb._create_connection()
+
+
+class test_moon_query(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.mq = MoonQuery()
+
+    def test_attach_db(self):
+        res = self.mq._attach_postgres()
+
+    def test_query(self):
+        res = self.mq.execute("SHOW TABLES;")
+        print(res)
+
+
+class test_query(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.mq = MoonQuery(db = 'colision_db')
+        cls.mq._attach_postgres()
+
+    def test_query(self):
+        res = self.mq.execute("SHOW TABLES;")
+        print(res)
