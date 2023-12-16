@@ -22,16 +22,13 @@ class test_moon_query(unittest.TestCase):
     def test_attach_db(self):
         res = self.mq._attach_postgres()
 
-    def test_query(self):
-        res = self.mq.execute("SHOW TABLES;")
-        print(res)
 
 
 class test_query(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.mq = MoonQuery(db = 'colision_db')
+        cls.mq = MoonQuery(db = 'postgres')
         cls.mq._attach_postgres()
 
     def test_query(self):
