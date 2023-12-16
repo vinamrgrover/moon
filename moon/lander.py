@@ -11,11 +11,12 @@ class MoonBase:
 
 
 class MoonQuery(MoonBase):
-    def __init__(self, host: str = "localhost", db: str = "postgres"):
+    def __init__(self, host: str = "localhost", db: str = "postgres", user : str = "postgres"):
         super().__init__()
         self.host = host
         self.port = 5432
         self.db = db
+        self.user = user
         self.cols = []
         self.con = self._create_connection()
 
@@ -24,7 +25,7 @@ class MoonQuery(MoonBase):
         try:
             self.con.sql(
                 f"""
-            ATTACH 'host = {self.host} port = {self.port} dbname = {self.db}' AS psql (TYPE postgres);
+            ATTACH 'host = {self.host} port = {self.port} dbname = {self.db} user = {self.user}' AS psql (TYPE postgres);
             """
             )
             self.con.sql("USE psql;")
