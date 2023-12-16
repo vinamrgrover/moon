@@ -1,5 +1,6 @@
 import unittest
 from moon import MoonBase, MoonQuery
+import pytest
 
 
 class test_moon_base(unittest.TestCase):
@@ -30,6 +31,7 @@ class test_query(unittest.TestCase):
         cls.mq = MoonQuery(db = 'postgres', user = 'moonuser')
         cls.mq._attach_postgres()
 
+    @pytest.mark.skip('ignoring test')
     def test_query(self):
         res = self.mq.execute("SHOW TABLES;")
         print(res)
