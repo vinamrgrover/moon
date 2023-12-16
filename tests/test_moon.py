@@ -27,7 +27,7 @@ class test_query(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.mq = MoonQuery(db = 'postgres', user = 'moon')
+        cls.mq = MoonQuery(db = 'postgres', user = 'moonuser')
         cls.mq._attach_postgres()
 
     def test_query(self):
