@@ -77,7 +77,7 @@ class MoonQuery(MoonBase):
     ) -> (pd.DataFrame, duckdb.DuckDBPyRelation):
         if df:
             try:
-                return self.con.sql(query).df()
+                return self._con.sql(query).df()
             except ParserException as e:
                 raise e
 
@@ -85,3 +85,10 @@ class MoonQuery(MoonBase):
             return self._con.sql(query)
         except ParserException as e:
             raise e
+
+    def query_endpoint(self, query : str):
+        df = self.execute(query, df = True)
+
+        # Temporary workaround for dealing with NaNs (string formatted)
+        df.replace('NaN', '', inplace = True)
+        return df.to_json(orient = 'records', indent = 2)
