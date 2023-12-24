@@ -54,6 +54,7 @@ class MoonQuery(MoonBase):
         db: str,
         user: str,
         password: str,
+        port : int
     ):
         """
         Constructor method for MoonBase.
@@ -75,6 +76,7 @@ class MoonQuery(MoonBase):
         self.dbname = db
         self.user = user
         self.password = password
+        self.port = port
         self._cols = []
         self._con = self._create_connection()
         self._attach_postgres()
