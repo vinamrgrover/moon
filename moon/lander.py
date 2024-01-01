@@ -181,3 +181,7 @@ class MoonQuery(MoonBase):
 
         df.to_csv(f"{file_path}.csv", index=False)
         return df.to_json(orient="records", indent=2)
+
+    def view_endpoint(self, query):
+        df = self.execute(query, df=True)
+        return df.head()
