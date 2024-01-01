@@ -6,20 +6,32 @@ Moon : A Lightweight API for inspecting PostgreSQL tables locally!
 Getting started with moon is easy! Here are a few ways to get started with moon:
 
 ### 1. pip
-  - 1.1 Clone the repository
+  - Clone the repository
 
 ```
 git clone https://github.com/vinamrgrover/moon
 ```
-  - 1.2 Installing Dependencies
+  - Installing Dependencies
 
 ```
 pip install -r requirements.txt
 ```
 
 ### 2. poetry
-> Coming Soon!
+Use poetry to install all the dependencies:
+
+```
+poetry install
+```
+
+
 
 ### 3. Docker
 > Coming Soon!
+
+## Usage
+
+### Interactive Mode
+
+You can use the *interactive mode* to query your PostgreSQL Database!
 
