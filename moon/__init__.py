@@ -1,1 +1,2 @@
-from moon.lander import MoonBase, MoonQuery
+from .lander import MoonBase, MoonQuery
+from .api import Endpoints
